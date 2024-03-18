@@ -12,11 +12,11 @@ function Home() {
                 {functionalities.map((functionality, index) => (
                     <li key={index}>
                         {functionality === 'Start and Stop Services' ?
-                            <a href="/Manage_containers">{functionality}</a> :
+                            <a href="/EnvironmentSelectionPage">{functionality}</a> :
                             functionality === 'Deployment History Overview' ?
                                 <a href="/List_images">{functionality}</a> :
                                 functionality === 'Whitelist IP' ?
-                                    <a href="/IP_Whitelist">{functionality}</a> :
+                                    <a href="/EnvironmentSelection_IP">{functionality}</a> :
                                     functionality
                         }
                     </li>

@@ -1,28 +1,42 @@
 import {  useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import "./register.css";
 
 function Register() {
   
     const [employeename, setEmployeename] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
 
     async function save(event) {
         event.preventDefault();
+        if (!employeename || !email || !password || !role) {
+          alert("All fields are required");
+          return;
+      }
         try {
-          await axios.post("http://localhost:8085/api/v1/employee/save", {
-          employeename: employeename,
-          email: email,
-          password: password,
+          const response = await axios.post("http://localhost:8085/api/v1/employee/save", {
+              employeename: employeename,
+              email: email,
+              password: password,
+              role: role,
           });
-          alert("Employee Registation Successfully");
-
-        } catch (err) {
-          alert(err);
-        }
+          console.log(response.data);
+          if (response.data === "Email already exists") {
+            alert("Email already exists");
+        } else {
+            alert("Employee Registration Successful");
+            navigate('/Login');
+          }
+      } catch (error) {
+          console.error(error);
+          alert("An error occurred while registering the employee. Please try again.");
+      }
       }
   
     return (
@@ -68,10 +82,19 @@ function Register() {
             
             />
           </div>
-
+          <div className="form-group">
+                            <label>Role</label>
+                            <select className="form-control" value={role} onChange={(event) => setRole(event.target.value)}>
+                                <option value="">Select Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Tester">Tester</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value="Developer">Developer</option>
+                            </select>
+                        </div>
         <div className="btn-group">
         <button type="submit" class="btn btn-primary mt-4" onClick={save}>Register</button>
-        <button className="btn btn-primary" onClick={() => navigate('/Login')}>Login</button>
+        <button className="btn btn-primary" class="btn btn-primary mt-4" onClick={() => navigate('/Login')}>Login</button>
         </div>
        
       </form>

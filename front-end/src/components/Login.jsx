@@ -11,6 +11,10 @@ function Login() {
 
     async function login(event) {
         event.preventDefault();
+        if (!email || !password) {
+            alert("All fields are required");
+            return;
+        }
         try {
             await axios.post("http://localhost:8085/api/v1/employee/login", {
                 email: email,

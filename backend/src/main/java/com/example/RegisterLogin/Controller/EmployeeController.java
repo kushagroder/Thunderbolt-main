@@ -6,10 +6,14 @@ import com.example.RegisterLogin.Service.EmployeeService;
 import com.example.RegisterLogin.response.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @CrossOrigin
 @RequestMapping("api/v1/employee")
 public class EmployeeController {
@@ -27,6 +31,9 @@ public class EmployeeController {
         LoginResponse loginResponse = employeeService.loginEmployee(loginDTO);
         return ResponseEntity.ok(loginResponse);
     }
+
+
+//    @PreAuthorize("hasRole('admin')")
     @GetMapping("/images")
     public String getMessage() {
         String url_images = "https://e05lpgn9h3.execute-api.eu-west-2.amazonaws.com/default/Test-POC-ECR";

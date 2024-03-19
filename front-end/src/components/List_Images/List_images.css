@@ -1,77 +1,100 @@
 .container {
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    max-width: 900px;
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    font-size: 42px;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 6px;
-    background-color: #6f42c1;
-    border-radius: 3px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  thead {
-    background-color: #6f42c1;
-    color: #fff;
-  }
-  
-  th,
-  td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  tbody tr {
-    background-color: #f5f5f5;
-  }
-  
-  tbody tr.new {
-    background-color: #d4edda;
-  }
-  
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 40px;
-    color: #6f42c1;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  .back-link:hover {
-    color: #4d49b8;
-  }
-  
-  .back-link i {
-    margin-right: 8px;
-  }
-  
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 42px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 6px;
+  background-color: #6f42c1;
+  border-radius: 3px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #6f42c1;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr {
+  background-color: #f5f5f5;
+}
+
+tbody tr.new {
+  background-color: #d4edda;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  color: #6f42c1;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+  color: #4d49b8;
+}
+
+.back-link i {
+  margin-right: 8px;
+}
+
+/* New CSS for arrow icon */
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+h2:hover {
+  cursor: pointer;
+}
+
+.arrow-icon {
+  font-size: 20px;
+}
+
+.collapsible-content {
+  display: none;
+}
+
+.collapsible-content.active {
+  display: block;
+}

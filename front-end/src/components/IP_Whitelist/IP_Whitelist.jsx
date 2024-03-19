@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importing navigate from React Router
 import './IP_Whitelist.css';
+import { BASE_URL, startLinks_containers,stopLinks_containers, Ip_whitelist } from '../../constants.js';
 
 const IPAddressForm = ({ environment_ip }) => {
   const navigate = useNavigate(); // Initializing navigate
@@ -39,17 +40,17 @@ const IPAddressForm = ({ environment_ip }) => {
       // Use different endpoint based on environment_ip
       let endpoint = '';
       switch (environment_ip) {
-        case 'Development':
-          endpoint = 'development_endpoint_here';
+        case 'BF1':
+          endpoint = 'Ip_whitelist.link1';
           break;
-        case 'Testing':
-          endpoint = 'testing_endpoint_here';
+        case 'BF2':
+          endpoint = 'Ip_whitelist.link2';
           break;
-        case 'Staging':
-          endpoint = 'staging_endpoint_here';
+        case 'BF3':
+          endpoint = 'Ip_whitelist.link3';
           break;
-        case 'Production':
-          endpoint = 'production_endpoint_here';
+        case 'BF4':
+          endpoint = 'Ip_whitelist.link4';
           break;
         default:
           break;

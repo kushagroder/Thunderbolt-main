@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './home.css';
+import { BASE_URL, startLinks_containers,stopLinks_containers, Ip_whitelist } from '../../constants.js';
 
 function Manage_container({ environment }) {
     const [showMessage, setShowMessage] = useState(false);
@@ -8,13 +9,13 @@ function Manage_container({ environment }) {
     const getActionUrl = (action) => {
         switch (environment) {
             case 'BF1':
-                return action === 'start' ? 'link1tostart' : 'link1tostart';
+                return action === 'start' ? 'startLinks_containers.link1' : 'stopLinks_containers.link1';
             case 'BF2':
-                return action === 'start' ? 'link1tostart' : 'link1tostart';
+                return action === 'start' ? 'startLinks_containers.link2' : 'stopLinks_containers.link2';
             case 'BF3':
-                return action === 'start' ? 'link1tostart' : 'link1tostart';
+                return action === 'start' ? 'startLinks_containers.link3' : 'stopLinks_containers.link3';
             case 'BF4':
-                return action === 'start' ? 'link1tostart' : 'link1tostart';
+                return action === 'start' ? 'startLinks_containers.link4' : 'stopLinks_containers.link4';
             default:
                 return '';
         }
